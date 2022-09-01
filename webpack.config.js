@@ -1,6 +1,5 @@
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 // const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require('path');
@@ -63,7 +62,12 @@ const config = {
     //   }]
     // })
   ],
-  mode: 'development'
+  mode: 'development',
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    port: 3000 // <--- Add this line and choose your own port number
+  }
 };
 
 module.exports = config;
